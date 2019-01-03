@@ -3,6 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import '../web-components/hello-components';
 import '../web-components/email-link';
+import '../web-components/counter-component';
 
 import { AppComponent } from './app.component';
 

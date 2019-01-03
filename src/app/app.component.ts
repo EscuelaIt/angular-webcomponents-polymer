@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-webcomponents-polymer';
-
   email = 'malvarez@escuela.it';
+  counter = 3;
+  finalized = false;
+
+  counterFinalized(e) {
+    console.log(`finalizado con ${e.detail}`);
+    this.finalized = true;
+  }
 }
