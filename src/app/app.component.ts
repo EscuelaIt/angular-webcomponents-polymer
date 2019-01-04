@@ -1,11 +1,32 @@
 import { Component } from '@angular/core';
 
+import '@vaadin/vaadin-button';
+import '@vaadin/vaadin-grid';
+import '@vaadin/vaadin-text-field';
+import '../web-components/my-input';
+import { FormGroup, FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  people: Person[] = [];
+
+  form = new FormGroup({ 
+    firstName: new FormControl(''),
+    lastName: new FormControl('')
+  });
+
+  addPerson() { 
+    this.people = [
+      ...this.people,
+      new Person(this.form.value.firstName, this.form.value.lastName)
+    ];
+    this.form.reset();
+  }
+
   title = 'angular-webcomponents-polymer';
   email = 'malvarez@escuela.it';
   counter = 3;
@@ -15,4 +36,8 @@ export class AppComponent {
     console.log(`finalizado con ${e.detail}`);
     this.finalized = true;
   }
+}
+
+class Person {
+  constructor(public firstName: string, public lastName: string) {}
 }
